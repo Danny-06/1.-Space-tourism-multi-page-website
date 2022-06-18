@@ -1,0 +1,36 @@
+._max-z-index_ {
+  z-index: 2147483647;
+}
+
+
+._no-self-events_ {
+  pointer-events: none;
+}
+
+._no-self-events_ > * {
+  pointer-events: auto;
+}
+
+
+._focus-outline_ {
+  outline: solid 0 #2968a0;
+  transition-property: outline-width, outline-offset;
+  transition-duration: 0.1s;
+}
+
+._focus-outline_:focus-visible {
+  outline-width: 0.2em;
+  outline-offset: 0.2em;
+}
+
+
+._grid-overlay_ {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "overlay";
+}
+
+._grid-overlay_ > * {
+  grid-area: overlay;
+}

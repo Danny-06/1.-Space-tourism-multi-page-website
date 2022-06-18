@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Space Tourism</title>
+        <link rel="icon" href="assets/favicon-32x32.png" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <meta name="theme-color" content="#444">
+        <meta name="color-scheme" content="dark">
+        <link rel="stylesheet" href="fonts.css">
+        <link rel="stylesheet" href="default.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="utility-classes.css">
+        <script type="module" src="main.js"></script>
+        <script>
+        // Always remove text selection when the user clicks on any part of the document
+        // This is to avoid those annoying times when you want to remove the selection but you can't
+        window.addEventListener('mousedown', event => {
+          if (event.button === 0) window.getSelection().empty()
+        })
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <div id="app-content">
+                <nav class="navbar-block">
+                    <a class="logo" href="#">
+                        <img src="assets/images/shared/logo.svg" alt="Logo">
+                    </a>
+                    <div class="linedecorator"></div>
+                    <div class="list" role="list">
+                        <div class="item -active" role="listitem">
+                            <a href="index.html" class="link">
+                                <span class="index">00</span>
+                                <span class="name">HOME</span>
+                            </a>
+                        </div>
+                        <div class="item" role="listitem">
+                            <a href="pages/destination/destination.html" class="link">
+                                <span class="index">01</span>
+                                <span class="name">DESTINATION</span>
+                            </a>
+                        </div>
+                        <div class="item" role="listitem">
+                            <a href="pages/crew/crew.html" class="link">
+                                <span class="index">02</span>
+                                <span class="name">CREW</span>
+                            </a>
+                        </div>
+                        <div class="item" role="listitem">
+                            <a href="pages/technology/technology.html" class="link">
+                                <span class="index">03</span>
+                                <span class="name">TECHNOLOGY</span>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="btn-hamburguer-menu"></button>
+                </nav>
+                <main class="main-block">
+                    <div class="content">
+                        <h1 class="title">
+                            SO, YOU WANT TO TRAVEL TO
+                            <div class="emphasis">SPACE</div>
+                        </h1>
+                        <p class="description">
+                            Let’s face it;
+                            if you want to go to space,
+                            you might as well genuinely go to outer space and
+                            not hover kind of on the edge of it.
+                            Well sit back, and relax because we’ll give you
+                            a truly out of this world experience!
+                        </p>
+                    </div>
+                    <div class="explore">
+                        <div class="btn-explore">EXPLORE</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
