@@ -25,6 +25,13 @@
   font-size: max(1rem, 1vw);
 }
 
+@media (orientation: portrait) {
+  :root {
+    font-size: max(1rem, 2vw);
+  }
+}
+
+
 img {
   -webkit-user-drag: none;
 }
@@ -83,7 +90,7 @@ img {
   padding-left: 3rem;
 }
 
-@media (max-width: 40.625em) {
+@media (max-width: 40.625em), (orientation: portrait) {
   .navbar-block {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -127,7 +134,7 @@ img {
   }
 }
 
-@media (max-width: 40.625em) {
+@media (max-width: 40.625em), (orientation: portrait) {
   .navbar-block > .list {
     display: none;
   }
@@ -152,7 +159,7 @@ img {
   }
 }
 
-@media (max-width: 53.125em) {
+@media (max-width: 53.125em), (orientation: portrait) {
   .navbar-block > .linedecorator {
     display: none;
   }
@@ -196,7 +203,7 @@ img {
   align-self: center;
 }
 
-@media (max-width: 40.625em) {
+@media (max-width: 40.625em), (orientation: portrait) {
   .navbar-block > .btn-hamburguer-menu {
     display: block;
   }
@@ -207,6 +214,7 @@ img {
   height: 3em;
   background-image: var(--btn-hamburguer-icon);
   background-position: center;
+  background-size: 80% auto;
 
   cursor: pointer;
 }
@@ -225,7 +233,7 @@ img {
   overflow: auto;
 }
 
-@media (max-width: 68.75em) {
+@media (max-width: 68.75em), (orientation: portrait) {
   .main-block {
     justify-content: center;
     align-content: space-between;
