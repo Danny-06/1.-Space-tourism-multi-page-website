@@ -26,15 +26,6 @@
   background-repeat: no-repeat;
 }
 
-
-/* Normalize flexbox/grid alignment */
-* {
-  justify-content: stretch;
-  align-content: stretch;
-  justify-items: stretch;
-  align-items: stretch;
-}
-
 /*
   Avoid autocalculation of `min-width` and `min-height` properties
   of flex/grid items based on the intrinsic size of its content

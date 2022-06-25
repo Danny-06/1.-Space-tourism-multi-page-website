@@ -15,6 +15,7 @@
   --bg-mobile: url('assets/images/home/background-home-mobile.jpg');
 
   --btn-hamburguer-icon: url('assets/images/shared/icon-hamburger.svg');
+  --btn-close-hamburguer-menu-icon: url('assets/images/shared/icon-close.svg')
 }
 
 :root {
@@ -24,6 +25,11 @@
 
   font-size: max(1rem, 1vw);
 }
+
+::selection {
+  background-color: #fff2;
+}
+
 
 @media (orientation: portrait) {
   :root {
@@ -84,6 +90,8 @@ img {
 }
 
 .navbar-block {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
 
@@ -112,31 +120,27 @@ img {
   width: 100%;
 }
 
-.navbar-block > .list {
-  display: flex;
-  column-gap: 3rem;
-
-  padding-inline: 8rem 10rem;
-
-  backdrop-filter: blur(1.375em);
-  background-color: hsl(0deg, 0%, 60%, 0.1);
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  .navbar-block > .list {
-    background-color: hsl(0deg, 0%, 50%, 0.6);
-  }
-}
-
-@media (max-width: 62.5em), (orientation: portrait) {
-  .navbar-block > .list {
-    padding-inline: 2rem;
-  }
+.navbar-block > .iconclose {
+  display: none;
 }
 
 @media (max-width: 40.625em) {
-  .navbar-block > .list {
-    display: none;
+  .navbar-block > .list > .iconclose {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin-top: 2rem;
+    margin-right: 1.5rem;
+
+    background-image: var(--btn-close-hamburguer-menu-icon);
+    background-size: contain;
+
+    cursor: pointer;
   }
 }
 
@@ -165,11 +169,74 @@ img {
   }
 }
 
+
+.navbar-block > .list {
+  display: flex;
+  column-gap: 3rem;
+
+  padding-inline: 8rem 10rem;
+
+  backdrop-filter: blur(1.375em);
+  background-color: hsl(0deg, 0%, 60%, 0.1);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .navbar-block > .list {
+    background-color: hsl(0deg, 0%, 30%);
+  }
+}
+
+@media (max-width: 62.5em), (orientation: portrait) {
+  .navbar-block > .list {
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 40.625em) {
+  .navbar-block > .list {
+    visibility: hidden;
+    padding-right: 0;
+  }
+
+  .navbar-block > .list.-show-mobile {
+    visibility: visible;
+
+    transform: translateX(0);
+  }
+
+  /*
+    Only add transition to the navlist if the navbar is in :hover state
+    to avoid transition when resizing the window
+  */
+  .navbar-block:hover > .list {
+    transition-duration: 0.2s;
+  }
+
+  .navbar-block > .list {
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+
+    flex-direction: column;
+    row-gap: 1.5rem;
+
+    width: 16rem;
+    height: 100%;
+    padding-block: 8rem;
+
+    transition-property: transform, visibility;
+  }
+}
+
 .navbar-block > .list > .item {
   display: flex;
 }
 
+
 .navbar-block > .list > .item > .link {
+  flex-grow: 1;
+
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
@@ -178,6 +245,15 @@ img {
 
   transition-property: border-color;
   transition-duration: 0.2s;
+}
+
+@media (max-width: 40.625em) {
+  .navbar-block > .list > .item > .link {
+    padding-block: 0.5rem;
+
+    border-bottom: none;
+    border-right: solid 0.3em transparent;
+  }
 }
 
 .navbar-block > .list > .item:hover > .link {
@@ -195,6 +271,12 @@ img {
 @media (max-width: 53.125em), (orientation: portrait) {
   .navbar-block > .list > .item > .link > .index {
     display: none;
+  }
+}
+
+@media (max-width: 40.625em) {
+  .navbar-block > .list > .item > .link > .index {
+    display: block;
   }
 }
 
@@ -257,9 +339,17 @@ img {
   .main-block {
     row-gap: 1rem;
 
-    padding-block: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 2.6rem;
+  }
+
+  @media (max-height: 40em) {
+    .main-block {
+      align-content: flex-start;
+    }
   }
 }
+
 
 .main-block > .content {
   align-self: flex-end;
@@ -343,10 +433,29 @@ img {
   color: #000;
   font-size: 2.5rem;
   font-family: var(--font-bellefair);
+
+  cursor: pointer;
+
+  transition: box-shadow 0.2s;
 }
+
+@media (hover: hover) {
+  .btn-explore:hover {
+    box-shadow: 0 0 0 1.5em #fff3;
+  }
+}
+
+@media (hover: none) {
+  .btn-explore:active {
+    box-shadow: 0 0 0 1.5em #fff3;
+  }
+}
+
 
 @media (max-width: 40.625em) {
   .btn-explore {
+    width: 6em;
+    height: 6em;
     font-size: 1.6rem;
   }
 }

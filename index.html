@@ -24,11 +24,12 @@
         <div id="app">
             <div id="app-content">
                 <nav class="navbar-block">
-                    <a class="logo" href="#">
+                    <a class="logo" href="index.html">
                         <img src="assets/images/shared/logo.svg" alt="Logo">
                     </a>
-                    <div class="linedecorator"></div>
-                    <div class="list" role="list">
+                    <button class="linedecorator"></button>
+                    <div class="list" role="list" data-js-nav-list>
+                        <div class="iconclose" data-js-close-hamburguer-menu-btn></div>
                         <div class="item -active" role="listitem">
                             <a href="index.html" class="link">
                                 <span class="index">00</span>
@@ -54,7 +55,7 @@
                             </a>
                         </div>
                     </div>
-                    <button class="btn-hamburguer-menu"></button>
+                    <button class="btn-hamburguer-menu" data-js-open-hamburguer-menu-btn></button>
                 </nav>
                 <main class="main-block">
                     <div class="content">
