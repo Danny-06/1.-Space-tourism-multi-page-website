@@ -205,10 +205,10 @@ img {
   }
 
   /*
-    Only add transition to the navlist if the navbar is in :hover state
+    Only add transition to the navlist if the document is in :hover state
     to avoid transition when resizing the window
   */
-  .navbar-block:hover > .list {
+  :root:hover .list {
     transition-duration: 0.2s;
   }
 
