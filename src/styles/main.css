@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+@import '../components/navbar/navbar.css';
+@import '../pages/home/home.css';
+
+:root {
+  --app-bg:             hsl(230deg, 35%, 7%);
+  --app-text:           hsl(0deg, 0%, 100%);
+  --secondary-color:    hsl(231deg, 77%, 90%);
+  --nav-line-decorator: hsl(0deg, 0%, 50%); 
+
+  --font-barlow: Barlow;
+  --font-barlow-condensed: 'Barlow Condensed';
+  --font-bellefair: Bellefair;
+
+  --bg-desktop: url('/assets/images/home/background-home-desktop.jpg');
+  --bg-tablet: url('/assets/images/home/background-home-tablet.jpg');
+  --bg-mobile: url('/assets/images/home/background-home-mobile.jpg');
+
+  --btn-hamburguer-icon: url('assets/images/shared/icon-hamburger.svg');
+  --btn-close-hamburguer-menu-icon: url('assets/images/shared/icon-close.svg')
+}
+
+:root {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-barlow);
+
+  font-size: max(1rem, 1vw);
+}
+
+::selection {
+  background-color: #fff2;
+}
+
+
+@media (orientation: portrait) {
+  :root {
+    font-size: max(1rem, 2vw);
+  }
+}
+
+
+img {
+  -webkit-user-drag: none;
+}
+
+
+[data-id="app"] {
+  background-image: var(--bg-desktop);
+  background-size: cover;
+}
+
+[data-id="app-content"] {
+  padding: 0;
+}
+
+@media (max-width: 53.125em), (orientation: portrait) {
+  [data-id="app"] {
+    background-image: var(--bg-tablet);
+  }
+}
+
+@media (max-width: 40.625em) {
+  [data-id="app"] {
+    background-image: var(--bg-mobile);
+  }
+}
+
+[data-id="app-content"] {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 6em 1fr;
+  grid-template-areas:
+  "nav "
+  "main"
+  ;
+
+  padding: 0;
+  padding-top: 2rem;
+
+  overflow: hidden;
+}
+
+@media (max-width: 53.125em) {
+  [data-id="app-content"] {
+    padding-top: 0;
+  }
+}
+
+[data-id="app-content"] > .navbar-block {
+  grid-area: nav;
+}
+
+[data-id="app-content"] > .navigate-component {
+  grid-area: main;
+}

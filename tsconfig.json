@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    // Allow JS to be recognized
+    // In this case this is used to allow the `d.ts`
+    // to take effect in JS files
+    "allowJs": true,
+    "target": "ESNext",
+
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
+    "moduleResolution": "Node"
+  }
+}
