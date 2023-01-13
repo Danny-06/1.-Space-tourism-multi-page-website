@@ -2,6 +2,7 @@
 
 @import '../components/navbar/navbar.css';
 @import '../pages/home/home.css';
+@import '../pages/destination/destination.css';
 
 @custom-media --break-1 (width <= 68.75em);
 @custom-media --break-2 (width <= 62.5em);

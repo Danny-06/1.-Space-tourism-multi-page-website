@@ -1,4 +1,5 @@
 import _ from './libs/functional-dom/index.js'
+import Destination from './pages/destination/destination.js'
 import Home from './pages/home/home.js'
 
 /**@type {import('./libs/functional-dom/components/dom-navigate/index.js').NavigateRoute[]} */
@@ -21,5 +22,9 @@ export const routes = [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/destination',
+    component: Destination
   },
 ]
