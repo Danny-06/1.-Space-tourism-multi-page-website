@@ -44,7 +44,7 @@ export function Link(options, ...children) {
     anchor[linkMethodSymbol] = method
   }
 
-  // Add dataset to indicate the anchor `href` matches the current pathname
+  // Add data attribute to indicate the `href` matches the current pathname
   navigation.addEventListener('custom-navigate', event => {
     const pathname = new URL(event.detail.path, location.href).toString()
     const pathnameMatches = anchor.href === pathname
