@@ -10,6 +10,8 @@ document.adoptedStyleSheets = [mainStyleSheet]
 const Navigate = DOMNavigate(routes)
 
 navigation.addEventListener('custom-navigate', event => {
+  document.documentElement.dataset.pathname = event.detail.path
+
   Navigate.update(event.detail.path)
 })
 

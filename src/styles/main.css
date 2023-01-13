@@ -19,13 +19,39 @@
   --font-barlow-condensed: 'Barlow Condensed';
   --font-bellefair: Bellefair;
 
-  --bg-desktop: url('/assets/images/home/background-home-desktop.jpg');
-  --bg-tablet: url('/assets/images/home/background-home-tablet.jpg');
-  --bg-mobile: url('/assets/images/home/background-home-mobile.jpg');
-
   --btn-hamburguer-icon: url('assets/images/shared/icon-hamburger.svg');
   --btn-close-hamburguer-menu-icon: url('assets/images/shared/icon-close.svg')
 }
+
+
+/* Background Images per page */
+
+:root,
+:root[data-pathname="/"],
+:root[data-pathname="/home"] {
+  --bg-desktop: url('/assets/images/home/background-home-desktop.jpg');
+  --bg-tablet: url('/assets/images/home/background-home-tablet.jpg');
+  --bg-mobile: url('/assets/images/home/background-home-mobile.jpg');
+}
+
+:root[data-pathname="/destination"] {
+  --bg-desktop: url('/assets/images/destination/background-destination-desktop.jpg');
+  --bg-tablet: url('/assets/images/destination/background-destination-tablet.jpg');
+  --bg-mobile: url('/assets/images/destination/background-destination-mobile.jpg');
+}
+
+:root[data-pathname="/crew"] {
+  --bg-desktop: url('/assets/images/crew/background-crew-desktop.jpg');
+  --bg-tablet: url('/assets/images/crew/background-crew-tablet.jpg');
+  --bg-mobile: url('/assets/images/crew/background-crew-mobile.jpg');
+}
+
+:root[data-pathname="/technology"] {
+  --bg-desktop: url('/assets/images/technology/background-technology-desktop.jpg');
+  --bg-tablet: url('/assets/images/technology/background-technology-tablet.jpg');
+  --bg-mobile: url('/assets/images/technology/background-technology-mobile.jpg');
+}
+
 
 :root {
   background-color: var(--app-bg);

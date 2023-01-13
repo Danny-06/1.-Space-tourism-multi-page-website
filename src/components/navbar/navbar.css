@@ -149,8 +149,10 @@
         }
       }
 
-      &:hover > .link {
-        border-color: var(--secondary-color);
+      @mixin :hover & {
+        & > .link {
+          border-color: var(--secondary-color);
+        }
       }
 
       &.-active > .link {
@@ -160,6 +162,17 @@
   }
 }
 
+/* Handle links state */
+:root {
+
+  &:is([data-pathname="/"], [data-pathname="/home"]) .navbar-block > .list > .item > .link:is([href="/"], [href="/home"]),
+  &[data-pathname="/destination"] .navbar-block > .list > .item > .link[href="/destination"],
+  &[data-pathname="/crew"] .navbar-block > .list > .item > .link[href="/crew"],
+  &[data-pathname="/technology"] .navbar-block > .list > .item > .link[href="/technology"] {
+    border-color: var(--app-text);
+  }
+
+}
 
 .navbar-block > .btn-hamburguer-menu {
   align-self: center;
