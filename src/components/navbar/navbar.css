@@ -129,6 +129,13 @@
         transition-property: border-color;
         transition-duration: 0.2s;
 
+        @media (--break-4) {
+          padding-block: 0.5rem;
+  
+          border-bottom: none;
+          border-right: solid 0.3em transparent;
+        }
+
         & > .index {
           font-weight: bold;
 
@@ -148,13 +155,6 @@
 
       &.-active > .link {
         border-color: var(--app-text);
-      }
-
-      @media (--break-4) {
-        padding-block: 0.5rem;
-
-        border-bottom: none;
-        border-right: solid 0.3em transparent;
       }
     }
   }
