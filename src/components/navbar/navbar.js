@@ -37,6 +37,8 @@ export default function Navbar() {
 
     list.addEventListener('transitionend', event => {
       list.style.transitionDuration = ''
+
+      closeHambugerBtn.focus()
     }, {once: true})
   })
 
@@ -46,6 +48,8 @@ export default function Navbar() {
 
     list.addEventListener('transitionend', event => {
       list.style.transitionDuration = ''
+  
+      openHambugerBtn.focus()
     }, {once: true})
   })
 
