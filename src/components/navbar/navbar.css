@@ -136,6 +136,10 @@
           border-right: solid 0.3em transparent;
         }
 
+        @mixin :hover & {
+          border-color: var(--secondary-color);
+        }
+
         /* Handle active link style */
         &[data-pathname-matches="true"] {
           border-color: var(--app-text);
@@ -151,12 +155,6 @@
           @media (--break-4) {
             display: block;
           }
-        }
-      }
-
-      @mixin :hover & {
-        & > .link {
-          border-color: var(--secondary-color);
         }
       }
     }
