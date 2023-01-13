@@ -28,11 +28,11 @@
     flex-grow: 1;
     align-self: center;
     height: 0.04rem;
-  
+
     transform: translateX(3.125em);
-  
+
     background-color: var(--nav-line-decorator);
-  
+
     /* Put .linedecorator over .list */
     z-index: 10;
 
@@ -48,9 +48,9 @@
   & > .list {
     display: flex;
     column-gap: 3rem;
-  
+
     padding-inline: 8rem 10rem;
-  
+
     backdrop-filter: blur(1.375em);
     background-color: hsl(0deg, 0%, 60%, 0.1);
 
@@ -119,21 +119,26 @@
 
       & > .link {
         flex-grow: 1;
-      
+
         display: flex;
         align-items: center;
         column-gap: 0.5rem;
-      
+
         border-bottom: solid 0.2em transparent;
-      
+
         transition-property: border-color;
         transition-duration: 0.2s;
 
         @media (--break-4) {
           padding-block: 0.5rem;
-  
+
           border-bottom: none;
           border-right: solid 0.3em transparent;
+        }
+
+        /* Handle active link style */
+        &[data-pathname-matches="true"] {
+          border-color: var(--app-text);
         }
 
         & > .index {
@@ -154,25 +159,10 @@
           border-color: var(--secondary-color);
         }
       }
-
-      &.-active > .link {
-        border-color: var(--app-text);
-      }
     }
   }
 }
 
-/* Handle links state */
-:root {
-
-  &:is([data-pathname="/"], [data-pathname="/home"]) .navbar-block > .list > .item > .link:is([href="/"], [href="/home"]),
-  &[data-pathname="/destination"] .navbar-block > .list > .item > .link[href="/destination"],
-  &[data-pathname="/crew"] .navbar-block > .list > .item > .link[href="/crew"],
-  &[data-pathname="/technology"] .navbar-block > .list > .item > .link[href="/technology"] {
-    border-color: var(--app-text);
-  }
-
-}
 
 .navbar-block > .btn-hamburguer-menu {
   align-self: center;
