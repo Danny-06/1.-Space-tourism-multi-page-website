@@ -8,7 +8,7 @@ const linkDefaultBehaviorSymbol = Symbol('default-behavior')
 
 /**
  * @typedef LinkPropertiesDef
- * @property {boolean} [defaultBehavior=false]
+ * @property {boolean} [defaultBehavior=false] Use normal behavior of anchors to go to a url (no navigation)
  * @property {string} [href] Value for the `href` attribute of the `HTMLAnchorElement`
  * @property {History['state']} [state] The state value to store in `History.state`
  * @property {'push' | 'replace'} [method] The navigation method to use. If unspecified it will be `push` for normal urls but for urls that contains a hash (`#`) `replace` will be used.
