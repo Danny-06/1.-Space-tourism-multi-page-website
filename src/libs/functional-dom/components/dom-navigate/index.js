@@ -45,7 +45,10 @@ export default function DOMNavigate(navigateRoutes) {
       for (const route of sortedRoutes) {
         if (route.path === pathname || route.path === '*') {
           if ('redirect' in route) {
-            navigation.replace(route.redirect)
+            setTimeout(() => {
+              navigation.replace(route.redirect)
+            })
+
             return
           }
 
