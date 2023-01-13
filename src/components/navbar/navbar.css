@@ -79,7 +79,7 @@
       padding-block: 8rem;
 
       transition-property: transform, visibility;
-      transition-duration: 0.2s;
+      /* handle transition on JS */
 
       &.-show-mobile {
         visibility: visible;

@@ -32,11 +32,21 @@ export default function Navbar() {
   const list = _.div()
 
   openHambugerBtn.addEventListener('click', event => {
+    list.style.transitionDuration = '0.2s'
     list.classList.add('-show-mobile')
+
+    list.addEventListener('transitionend', event => {
+      list.style.transitionDuration = ''
+    }, {once: true})
   })
 
   closeHambugerBtn.addEventListener('click', event => {
+    list.style.transitionDuration = '0.2s'
     list.classList.remove('-show-mobile')
+
+    list.addEventListener('transitionend', event => {
+      list.style.transitionDuration = ''
+    }, {once: true})
   })
 
   return _.nav({class: 'navbar-block'},
