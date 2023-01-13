@@ -8,6 +8,7 @@
 // https://github.com/andyjansson/postcss-conditionals
 // https://github.com/csstools/postcss-custom-selectors
 // https://github.com/postcss/postcss-import
+// https://github.com/OEvgeny/postcss-atroot
 
 /** Syntax **/
 // https://github.com/postcss/postcss-scss
@@ -26,6 +27,7 @@ module.exports = {
     'postcss-mixins',
     'postcss-for',
     'postcss-each',
+    'postcss-atroot',
     'postcss-nested',
     'postcss-custom-media',
     'postcss-media-minmax',
