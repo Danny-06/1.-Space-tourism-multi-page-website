@@ -1,6 +1,6 @@
 import _ from "../../libs/functional-dom/index.js";
 
-export default function Home() {
+export default function HomePage() {
   return _.main({class: 'home-block'},
     _.div({class: 'content'},
       _.h1({class: 'title'},

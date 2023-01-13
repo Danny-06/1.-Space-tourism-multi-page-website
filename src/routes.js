@@ -1,6 +1,8 @@
 import _ from './libs/functional-dom/index.js'
-import Destination from './pages/destination/destination.js'
-import Home from './pages/home/home.js'
+import CrewPage from './pages/crew/crew.js'
+import DestinationPage from './pages/destination/destination.js'
+import HomePage from './pages/home/home.js'
+import TechnologyPage from './pages/technology/technology.js'
 
 /**@type {import('./libs/functional-dom/components/dom-navigate/index.js').NavigateRoute[]} */
 export const routes = [
@@ -21,10 +23,18 @@ export const routes = [
   },
   {
     path: '/',
-    component: Home
+    component: HomePage
   },
   {
     path: '/destination',
-    component: Destination
+    component: DestinationPage
+  },
+  {
+    path: '/crew',
+    component: CrewPage
+  },
+  {
+    path: '/technology',
+    component: TechnologyPage
   },
 ]
