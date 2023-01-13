@@ -44,6 +44,12 @@ export function Link(options, ...children) {
     anchor[linkMethodSymbol] = method
   }
 
+  navigation.addEventListener('custom-navigate', event => {
+    const pathnameMatches = anchor.getAttribute('href') === event.detail.path
+
+    anchor.dataset.pathnameMatches = pathnameMatches.toString()
+  })
+
   // Propagate accessibility keyboard events for it to be used in inner components
 
   anchor.addEventListener('keydown', event => {
