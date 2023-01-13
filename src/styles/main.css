@@ -3,6 +3,12 @@
 @import '../components/navbar/navbar.css';
 @import '../pages/home/home.css';
 
+@custom-media --break-1 (width <= 68.75em);
+@custom-media --break-2 (width <= 62.5em);
+@custom-media --break-3 (width <= 53.125em);
+@custom-media --break-4 (width <= 40.625em);
+
+
 :root {
   --app-bg:             hsl(230deg, 35%, 7%);
   --app-text:           hsl(0deg, 0%, 100%);
@@ -27,17 +33,15 @@
   font-family: var(--font-barlow);
 
   font-size: max(1rem, 1vw);
+
+  @media (orientation: portrait) {
+    font-size: max(1rem, 2vw);
+  }
 }
+
 
 ::selection {
   background-color: #fff2;
-}
-
-
-@media (orientation: portrait) {
-  :root {
-    font-size: max(1rem, 2vw);
-  }
 }
 
 
@@ -49,23 +53,16 @@ img {
 [data-id="app"] {
   background-image: var(--bg-desktop);
   background-size: cover;
-}
 
-[data-id="app-content"] {
-  padding: 0;
-}
-
-@media (max-width: 53.125em), (orientation: portrait) {
-  [data-id="app"] {
+  @media (--break-3), (orientation: portrait) {
     background-image: var(--bg-tablet);
   }
-}
 
-@media (max-width: 40.625em) {
-  [data-id="app"] {
+  @media (--break-4) {
     background-image: var(--bg-mobile);
   }
 }
+
 
 [data-id="app-content"] {
   display: grid;
@@ -80,18 +77,26 @@ img {
   padding-top: 2rem;
 
   overflow: hidden;
-}
 
-@media (max-width: 53.125em) {
-  [data-id="app-content"] {
+  & > .navbar-block {
+    grid-area: nav;
+  }
+
+  & > .navigate-component {
+    grid-area: main;
+  }
+
+  @media (--break-3) {
     padding-top: 0;
   }
 }
 
-[data-id="app-content"] > .navbar-block {
-  grid-area: nav;
-}
 
-[data-id="app-content"] > .navigate-component {
-  grid-area: main;
+.navigate-component {
+  display: flex;
+
+  & > :first-child {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 }

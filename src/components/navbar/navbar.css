@@ -1,13 +1,3 @@
-
-.navigate-component {
-  display: flex;
-
-  & > :first-child {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-}
-
 .navbar-block {
   position: relative;
 
@@ -15,200 +5,170 @@
   justify-content: space-between;
 
   padding-left: 3rem;
-}
 
-@media (max-width: 40.625em) {
-  .navbar-block {
+  @media (--break-4) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-}
 
+  & a, span {
+    user-select: none;
+  }
 
-.navbar-block a,
-.navbar-block span {
-  user-select: none;
-}
+  & > .logo {
+    align-self: center;
+    width: 3em;
 
-.navbar-block > .logo {
-  align-self: center;
-  width: 3em;
-}
+    & > img {
+      width: 100%;
+    }
+  }
 
-.navbar-block > .logo > img {
-  width: 100%;
-}
+  & > .linedecorator {
+    flex-grow: 1;
+    align-self: center;
+    height: 0.04rem;
+  
+    transform: translateX(3.125em);
+  
+    background-color: var(--nav-line-decorator);
+  
+    /* Put .linedecorator over .list */
+    z-index: 10;
 
-.navbar-block > .list > .iconclose {
-  display: none;
-}
+    @media (--break-2) {
+      transform: translateX(1em);
+    }
 
-@media (max-width: 40.625em) {
-  .navbar-block > .list > .iconclose {
-    display: block;
-    width: 1.5em;
-    height: 1.5em;
+    @media (--break-3), (orientation: portrait) {
+      display: none;
+    }
+  }
 
-    position: absolute;
-    top: 0;
-    right: 0;
+  & > .list {
+    display: flex;
+    column-gap: 3rem;
+  
+    padding-inline: 8rem 10rem;
+  
+    backdrop-filter: blur(1.375em);
+    background-color: hsl(0deg, 0%, 60%, 0.1);
 
-    margin-top: 2rem;
-    margin-right: 1.5rem;
+    @supports not (backdrop-filter: blur(1px)) {
+      background-color: hsl(0deg, 0%, 30%);
+    }
 
-    background-image: var(--btn-close-hamburguer-menu-icon);
-    background-size: contain;
+    @media (--break-2), (orientation: portrait) {
+      padding-inline: 2rem;
+    }
 
-    cursor: pointer;
+    @media (--break-4) {
+      visibility: hidden;
+      padding-right: 0;
+
+      position: fixed;
+      right: 0;
+      top: 0;
+      transform: translateX(100%);
+
+      flex-direction: column;
+      row-gap: 1.5rem;
+
+      width: 16rem;
+      height: 100%;
+      padding-block: 8rem;
+
+      transition-property: transform, visibility;
+      transition-duration: 0.2s;
+
+      &.-show-mobile {
+        visibility: visible;
+
+        transform: translateX(0);
+      }
+    }
+
+    & > .iconclose {
+      display: block;
+      width: 1.5em;
+      height: 1.5em;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      margin-top: 2rem;
+      margin-right: 1.5rem;
+
+      background-image: var(--btn-close-hamburguer-menu-icon);
+      background-size: contain;
+
+      transition: filter 0.2s;
+
+      @mixin :hover & {
+        filter: drop-shadow(0px 0px 12px #fff);
+      }
+
+      @media not (--break-4) {
+        display: none;
+      }
+    }
+
+    & > .item {
+      display: flex;
+
+      & > .link {
+        flex-grow: 1;
+      
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+      
+        border-bottom: solid 0.2em transparent;
+      
+        transition-property: border-color;
+        transition-duration: 0.2s;
+
+        & > .index {
+          font-weight: bold;
+
+          @media (--break-3), (orientation: portrait) {
+            display: none;
+          }
+
+          @media (--break-4) {
+            display: block;
+          }
+        }
+      }
+
+      &:hover > .link {
+        border-color: var(--secondary-color);
+      }
+
+      &.-active > .link {
+        border-color: var(--app-text);
+      }
+
+      @media (--break-4) {
+        padding-block: 0.5rem;
+
+        border-bottom: none;
+        border-right: solid 0.3em transparent;
+      }
+    }
   }
 }
 
-.navbar-block > .linedecorator {
-  flex-grow: 1;
-  align-self: center;
-  height: 0.04rem;
-
-  transform: translateX(3.125em);
-
-  background-color: var(--nav-line-decorator);
-
-  /* Put .linedecorator over .list */
-  z-index: 10;
-}
-
-@media (max-width: 62.5em) {
-  .navbar-block > .linedecorator {
-    transform: translateX(1em);
-  }
-}
-
-@media (max-width: 53.125em), (orientation: portrait) {
-  .navbar-block > .linedecorator {
-    display: none;
-  }
-}
-
-
-.navbar-block > .list {
-  display: flex;
-  column-gap: 3rem;
-
-  padding-inline: 8rem 10rem;
-
-  backdrop-filter: blur(1.375em);
-  background-color: hsl(0deg, 0%, 60%, 0.1);
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  .navbar-block > .list {
-    background-color: hsl(0deg, 0%, 30%);
-  }
-}
-
-@media (max-width: 62.5em), (orientation: portrait) {
-  .navbar-block > .list {
-    padding-inline: 2rem;
-  }
-}
-
-@media (max-width: 40.625em) {
-  .navbar-block > .list {
-    visibility: hidden;
-    padding-right: 0;
-  }
-
-  .navbar-block > .list.-show-mobile {
-    visibility: visible;
-
-    transform: translateX(0);
-  }
-
-  /*
-    Only add transition to the navlist if the document is in :hover state
-    to avoid transition when resizing the window
-  */
-  :root:hover .list {
-    transition-duration: 0.2s;
-  }
-
-  .navbar-block > .list {
-    position: fixed;
-    right: 0;
-    top: 0;
-    transform: translateX(100%);
-
-    flex-direction: column;
-    row-gap: 1.5rem;
-
-    width: 16rem;
-    height: 100%;
-    padding-block: 8rem;
-
-    transition-property: transform, visibility;
-  }
-}
-
-.navbar-block > .list > .item {
-  display: flex;
-}
-
-
-.navbar-block > .list > .item > .link {
-  flex-grow: 1;
-
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-
-  border-bottom: solid 0.2em transparent;
-
-  transition-property: border-color;
-  transition-duration: 0.2s;
-}
-
-@media (max-width: 40.625em) {
-  .navbar-block > .list > .item > .link {
-    padding-block: 0.5rem;
-
-    border-bottom: none;
-    border-right: solid 0.3em transparent;
-  }
-}
-
-.navbar-block > .list > .item:hover > .link {
-  border-color: var(--secondary-color);
-}
-
-.navbar-block > .list > .item.-active > .link {
-  border-color: var(--app-text);
-}
-
-.navbar-block > .list > .item > .link > .index {
-  font-weight: bold;
-}
-
-@media (max-width: 53.125em), (orientation: portrait) {
-  .navbar-block > .list > .item > .link > .index {
-    display: none;
-  }
-}
-
-@media (max-width: 40.625em) {
-  .navbar-block > .list > .item > .link > .index {
-    display: block;
-  }
-}
 
 .navbar-block > .btn-hamburguer-menu {
-  display: none;
   align-self: center;
-}
 
-@media (max-width: 40.625em) {
-  .navbar-block > .btn-hamburguer-menu {
-    display: block;
+  @media not (--break-4) {
+    display: none;
   }
 }
+
 
 .btn-hamburguer-menu {
   width: 3em;
@@ -216,6 +176,4 @@
   background-image: var(--btn-hamburguer-icon);
   background-position: center;
   background-size: 80% auto;
-
-  cursor: pointer;
 }
