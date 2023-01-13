@@ -6,7 +6,7 @@ export const routes = [
   {
     path: '*',
     component: function NotFound() {
-      const style = {width: '100%', height: '100%', backgroundColor: '#9009', display: 'grid', placeItems: 'center'}
+      const style = {width: '100%', height: '100%', backgroundColor: '#9005', display: 'grid', placeItems: 'center'}
       return _.div({style}, 'NOT FOUND')
     }
   },
