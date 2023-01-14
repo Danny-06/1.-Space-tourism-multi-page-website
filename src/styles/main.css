@@ -6,10 +6,10 @@
 @import '../pages/crew/crew.css';
 @import '../pages/technology/technology.css';
 
-@custom-media --break-1 (width <= 68.75em);
-@custom-media --break-2 (width <= 62.5em);
-@custom-media --break-3 (width <= 53.125em);
-@custom-media --break-4 (width <= 40.625em);
+@custom-media --break-1 (width <= 68.75em); /* 1100px */
+@custom-media --break-2 (width <= 62.5em); /* 1000px */
+@custom-media --break-3 (width <= 53.125em); /* 850px */
+@custom-media --break-4 (width <= 40.625em); /* 650px */
 
 
 :root {

@@ -14,8 +14,8 @@ export default function DestinationPage() {
   const title = _.h2()
   const description = _.p()
 
-  const avgDistanceValue = _.div()
-  const timeTravelValue = _.div()
+  const avgDistanceValue = _.span()
+  const timeTravelValue = _.span()
 
   update()
 
@@ -74,11 +74,11 @@ export default function DestinationPage() {
 
         _.div({class: 'datainfo'},
           _.div({class: 'avgdistance'}, 
-            _.div({class: 'title'}, 'AVG. DISTANCE'),
+            _.span({class: 'title'}, 'AVG. DISTANCE'),
             $(avgDistanceValue, {class: 'value'}),
           ),
           _.div({class: 'traveltime'},
-            _.div({class: 'title'}, 'EST. TRAVEL TIME'),
+            _.span({class: 'title'}, 'EST. TRAVEL TIME'),
             $(timeTravelValue, {class: 'value'}),
           ),
         ),
