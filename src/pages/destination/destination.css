@@ -143,6 +143,10 @@
       text-transform: uppercase;
       letter-spacing: 0.16875rem; /* 2.7px */
 
+      @media (--break-4) {
+        font-size: 1rem;
+      }
+
       & > .option {
         padding-bottom: 0.6em;
         border-bottom: solid 0.2em transparent;
@@ -181,7 +185,7 @@
         text-transform: uppercase;
 
         @media (--break-4) {
-          font-size: 5.25rem;
+          font-size: 4.25rem;
         }
       }
 
