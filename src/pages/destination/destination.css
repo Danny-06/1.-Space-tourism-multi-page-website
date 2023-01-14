@@ -61,9 +61,16 @@
       letter-spacing: 0.16875rem; /* 2.7px */
 
       & > .option {
+        padding-bottom: 0.6em;
+        border-bottom: solid 0.2em transparent;
+
+        @mixin :hover & {
+          border-color: var(--secondary-color);
+        }
 
         &.-active {
           color: var(--app-text);
+          border-color: var(--app-text);
         }
       }
     }
