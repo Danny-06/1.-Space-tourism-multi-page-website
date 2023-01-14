@@ -97,14 +97,14 @@
         align-self: center;
 
         width: 300px;
-        
-        @media (orientation: portrait) and (height >= 900px) {
-          width: 380px;
-        }
       }
 
       @media (--break-4) {
         width: 190px;
+      }
+
+      @media (--break-3-portrait) and (height >= 900px) {
+        width: 300px;
       }
 
       & > img {
