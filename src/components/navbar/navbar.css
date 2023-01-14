@@ -6,6 +6,8 @@
 
   padding-left: 3rem;
 
+  font-family: var(--font-barlow-condensed);
+
   @media (--break-4) {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -116,6 +118,7 @@
 
     & > .item {
       display: flex;
+      letter-spacing: 0.16875rem;
 
       & > .link {
         flex-grow: 1;
