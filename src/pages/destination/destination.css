@@ -1,6 +1,6 @@
 .destination-block {
   display: grid;
-  grid-template-columns: minmax(auto, 27.8125rem) minmax(min-content, 26rem);
+  grid-template-columns: 27.8125rem minmax(min-content, 26rem);
   justify-content: center;
   align-content: center;
   column-gap: 9rem;
