@@ -89,8 +89,42 @@
       }
 
       & > .description {
+        margin-bottom: 2rem;
+
         color: var(--secondary-color);
         line-height: 2rem;
+      }
+
+      & > .lineseparator {
+        height: 1px;
+
+        background-color: #383B4B;
+      }
+
+      & > .datainfo {
+        display: flex;
+        column-gap: 3rem;
+
+        & > .avgdistance,
+        & > .traveltime {
+          display: flex;
+          flex-direction: column;
+          row-gap: 0.5rem;
+
+          text-transform: uppercase;
+
+          & > .title {
+            color: var(--secondary-color);
+            font-size: 0.875rem;
+            font-family: var(--font-barlow-condensed);
+            letter-spacing: 0.1475rem;
+          }
+          
+          & > .value {
+            font-size: 1.75rem;
+            font-family: var(--font-bellefair);
+          }
+        }
       }
     }
   }
