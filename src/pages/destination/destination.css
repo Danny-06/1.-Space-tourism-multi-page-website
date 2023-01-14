@@ -1,3 +1,5 @@
+@custom-media --break-3-portrait (--break-3), (orientation: portrait);
+
 .destination-block {
   display: grid;
   grid-template-columns: 27.8125rem minmax(min-content, 26rem);
@@ -20,7 +22,7 @@
     padding-inline: 1.3rem;
   }
 
-  @media (--break-3) {
+  @media (--break-3-portrait) {
     grid-template-columns: auto;
     grid-template-rows: min-content minmax(min-content, 1fr);
     align-content: stretch;
@@ -38,7 +40,7 @@
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       grid-column: 1 / span 1;
       grid-row: 1 / span 1;
     }
@@ -51,7 +53,7 @@
     align-self: flex-end;
     min-height: 27.8125rem;
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       grid-column: 1 / span 1;
       grid-row: 2 / span 1;
 
@@ -91,7 +93,7 @@
       width: 100%;
       aspect-ratio: 1 / 1;
 
-      @media (--break-3) {
+      @media (--break-3-portrait) {
         align-self: center;
 
         width: 300px;
@@ -109,7 +111,7 @@
         object-fit: contain;
         padding-left: 2rem;
 
-        @media (--break-3) {
+        @media (--break-3-portrait) {
           padding-left: 0;
         }
       }
@@ -121,13 +123,13 @@
     flex-direction: column;
     row-gap: 1rem;
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       align-items: center;
 
       padding-inline: 6rem;
     }
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       padding-inline: 0;
     }
 
@@ -171,7 +173,7 @@
       flex-direction: column;
       row-gap: 1rem;
 
-      @media (--break-3) {
+      @media (--break-3-portrait) {
         align-items: center;
 
         text-align: center;
@@ -223,7 +225,7 @@
 
           text-transform: uppercase;
 
-          @media  (--break-3) {
+          @media  (--break-3-portrait) {
             row-gap: 1rem;
           }
 
