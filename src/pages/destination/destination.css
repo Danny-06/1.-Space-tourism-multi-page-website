@@ -22,11 +22,16 @@
 
   @media (--break-3) {
     grid-template-columns: auto;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: min-content minmax(min-content, 1fr);
     align-content: stretch;
     row-gap: 2rem;
 
     padding-inline: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (--break-4) {
+    padding-bottom: 2rem;
   }
 
   & > .imagesection {
@@ -43,9 +48,14 @@
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
 
+    align-self: flex-end;
+    min-height: 27.8125rem;
+
     @media (--break-3) {
       grid-column: 1 / span 1;
       grid-row: 2 / span 1;
+
+      height: auto;
     }
   }
 
@@ -63,6 +73,12 @@
 
       letter-spacing: 0.295rem; /* 4.72px */
 
+      @media (--break-4) {
+        align-self: center;
+
+        font-size: 1.2rem;
+      }
+
       & > .index {
         color: #50525a;
         font-weight: bold;
@@ -70,6 +86,8 @@
     }
 
     & > .image {
+      max-width: 100%;
+
       width: 100%;
       aspect-ratio: 1 / 1;
 
@@ -77,19 +95,28 @@
         align-self: center;
 
         width: 300px;
+        
+        @media (orientation: portrait) and (height >= 900px) {
+          width: 380px;
+        }
+      }
+
+      @media (--break-4) {
+        width: 190px;
       }
 
       & > img {
         object-fit: contain;
         padding-left: 2rem;
+
+        @media (--break-3) {
+          padding-left: 0;
+        }
       }
     }
   }
 
   & > .infosection {
-    align-self: flex-end;
-    height: 27.8125rem;
-
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
@@ -98,6 +125,10 @@
       align-items: center;
 
       padding-inline: 6rem;
+    }
+
+    @media (--break-3) {
+      padding-inline: 0;
     }
 
     & > .buttons {
@@ -148,6 +179,10 @@
         font-family: var(--font-bellefair);
 
         text-transform: uppercase;
+
+        @media (--break-4) {
+          font-size: 5.25rem;
+        }
       }
 
       & > .description {
@@ -171,6 +206,11 @@
         display: flex;
         column-gap: 3rem;
 
+        @media (--break-4) {
+          flex-direction: column;
+          row-gap: 2rem;
+        }
+
         & > .avgdistance,
         & > .traveltime {
           display: flex;
@@ -178,6 +218,10 @@
           row-gap: 0.5rem;
 
           text-transform: uppercase;
+
+          @media  (--break-3) {
+            row-gap: 1rem;
+          }
 
           & > .title {
             color: var(--secondary-color);
