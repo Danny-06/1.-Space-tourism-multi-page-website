@@ -29,7 +29,11 @@
 
 /* Background Images per page */
 
-:root,
+:root {
+
+}
+
+
 :root[data-pathname="/"],
 :root[data-pathname="/home"] {
   --bg-desktop: url('/assets/images/home/background-home-desktop.jpg');
