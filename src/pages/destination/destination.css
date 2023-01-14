@@ -104,7 +104,7 @@
       }
 
       @media (--break-3-portrait) and (height >= 900px) {
-        width: 300px;
+        width: clamp(300px, 28vh, 100%);
       }
 
       & > img {
