@@ -2,7 +2,7 @@
 
 .destination-block {
   display: grid;
-  grid-template-columns: 27.8125rem minmax(min-content, 26rem);
+  grid-template-columns: minmax(auto, 27.8125rem) minmax(min-content, 26rem);;
   grid-template-rows: auto;
   justify-content: center;
   column-gap: 9rem;
