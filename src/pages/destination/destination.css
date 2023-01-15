@@ -13,10 +13,6 @@
 
   overflow: auto;
 
-  & > * {
-    margin-block: auto;
-  }
-
   @media (--break-2) {
     column-gap: 2rem;
 
@@ -48,6 +44,8 @@
   }
 
   & > .infosection {
+    margin-block: auto;
+
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
 
