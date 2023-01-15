@@ -61,7 +61,7 @@
     & > .info {
       display: flex;
       flex-direction: column;
-      row-gap: 1rem;
+      row-gap: 0.5rem;
 
       & > .role {
         color: #8e9094;
@@ -72,6 +72,8 @@
       }
       
       & > .name {
+        margin-bottom: 1rem;
+
         font-size: 3.5rem;
         font-family: var(--font-bellefair);
         font-weight: normal;
