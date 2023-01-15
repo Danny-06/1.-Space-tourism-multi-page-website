@@ -34,29 +34,25 @@
 }
 
 
-:root[data-pathname="/"],
-:root[data-pathname="/home"] {
-  --bg-desktop: url('/assets/images/home/background-home-desktop.jpg');
-  --bg-tablet: url('/assets/images/home/background-home-tablet.jpg');
-  --bg-mobile: url('/assets/images/home/background-home-mobile.jpg');
-}
+$routes: (home, destination, crew, technology);
 
-:root[data-pathname="/destination"] {
-  --bg-desktop: url('/assets/images/destination/background-destination-desktop.jpg');
-  --bg-tablet: url('/assets/images/destination/background-destination-tablet.jpg');
-  --bg-mobile: url('/assets/images/destination/background-destination-mobile.jpg');
-}
+@each $path in $routes {
 
-:root[data-pathname="/crew"] {
-  --bg-desktop: url('/assets/images/crew/background-crew-desktop.jpg');
-  --bg-tablet: url('/assets/images/crew/background-crew-tablet.jpg');
-  --bg-mobile: url('/assets/images/crew/background-crew-mobile.jpg');
-}
+  @if $path == home {
+    :root[data-pathname="/"] {
+      --bg-desktop: url('/assets/images/$(path)/background-$(path)-desktop.jpg');
+      --bg-tablet: url('/assets/images/$(path)/background-$(path)-tablet.jpg');
+      --bg-mobile: url('/assets/images/$(path)/background-$(path)-mobile.jpg');
+    }
+  }
+  @else {
+    :root[data-pathname="/$(path)"] {
+      --bg-desktop: url('/assets/images/$(path)/background-$(path)-desktop.jpg');
+      --bg-tablet: url('/assets/images/$(path)/background-$(path)-tablet.jpg');
+      --bg-mobile: url('/assets/images/$(path)/background-$(path)-mobile.jpg');
+    }
+  }
 
-:root[data-pathname="/technology"] {
-  --bg-desktop: url('/assets/images/technology/background-technology-desktop.jpg');
-  --bg-tablet: url('/assets/images/technology/background-technology-tablet.jpg');
-  --bg-mobile: url('/assets/images/technology/background-technology-mobile.jpg');
 }
 
 
