@@ -33,6 +33,10 @@
     padding-bottom: 2rem;
   }
 
+  & > * {
+    margin-block: auto;
+  }
+
   & > .imagesection {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
@@ -44,8 +48,6 @@
   }
 
   & > .infosection {
-    margin-block: auto;
-
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
 
