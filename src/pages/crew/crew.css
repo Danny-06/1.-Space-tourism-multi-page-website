@@ -1,3 +1,136 @@
 .crew-block {
+  display: grid;
+  grid-template-columns: minmax(auto, 38.8125rem) 29rem;
+  grid-template-rows: auto;
+  justify-content: center;
 
+  padding-inline: 2rem;
+  padding-top: 2rem;
+
+  overflow: auto;
+
+  @media (--break-2) {
+    padding-inline: 1.3rem;
+  }
+
+  & > .infosection {
+    margin-block: auto;
+
+    /* min-height: 29.8125rem; */
+    min-height: 34.8125rem;
+
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  
+  & > .imagesection {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+
+  & > .infosection {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 3.5rem;
+
+    & > .title {
+      margin-bottom: auto;
+
+      display: flex;
+      column-gap: 2ch;
+
+      font-size: 1.6rem;
+      font-family: var(--font-barlow-condensed);
+
+      letter-spacing: 0.295rem; /* 4.72px */
+
+      @media (--break-4) {
+        align-self: center;
+
+        font-size: 1.2rem;
+      }
+
+      & > .index {
+        color: #50525a;
+        font-weight: bold;
+      }
+    }
+
+    & > .info {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+
+      & > .role {
+        color: #8e9094;
+        font-size: 2rem;
+        font-family: var(--font-bellefair);
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      
+      & > .name {
+        font-size: 3.5rem;
+        font-family: var(--font-bellefair);
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+
+      & > .bio {
+        margin-bottom: 6rem;
+
+        max-width: 45ch;
+
+        color: var(--secondary-color);
+        line-height: 2rem;
+      }
+    }
+
+    & > .dots {
+      display: flex;
+      column-gap: 1.5rem;
+
+      & > .options {
+        width: max(16px, 1em);
+        aspect-ratio: 1 / 1;
+
+        border-radius: 50%;
+
+        background-color: #363841;
+
+        @mixin :hover & {
+          background-color: #86878c;
+        }
+
+        &.-active {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  & > .imagesection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    & > .image {
+      width: 100%;
+      max-height: 100%;
+
+      object-fit: contain;
+    }
+
+    & > .line {
+      height: 2px;
+
+      background-color: #383B4B;
+
+      @media not (--break-3) {
+        display: none;
+      }
+    }
+  }
 }
