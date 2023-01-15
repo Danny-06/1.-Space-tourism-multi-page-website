@@ -26,7 +26,6 @@ module.exports = {
     'postcss-mixins',
     'postcss-for',
     'postcss-each',
-    'postcss-conditionals',
     'postcss-atroot',
     'postcss-nested',
     'postcss-custom-media',
