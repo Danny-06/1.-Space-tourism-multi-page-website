@@ -59,7 +59,7 @@ import { $map, createElement, createElementNS, setChildren, setClasses, setStyle
 
 /**
  * @typedef {{
- *  $map: (length: number, callback: (index: number) => CoreNode) => Children
+ *  $map: (length: number, callback: (index: number) => CoreNode) => Children[]
  * }} DOMMakerMapFunc
  */
 
