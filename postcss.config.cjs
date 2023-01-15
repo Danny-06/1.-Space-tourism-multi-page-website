@@ -23,10 +23,10 @@ module.exports = {
   plugins: [
     'postcss-import',
     simpleVariables,
-    'postcss-conditionals',
     'postcss-mixins',
     'postcss-for',
     'postcss-each',
+    'postcss-conditionals',
     'postcss-atroot',
     'postcss-nested',
     'postcss-custom-media',
