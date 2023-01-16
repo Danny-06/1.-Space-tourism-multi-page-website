@@ -26,6 +26,8 @@ const links = [
 ]
 
 export default function Navbar() {
+  const navbar = _.nav()
+
   const openHambugerBtn = _.button()
   const closeHambugerBtn = _.button()
 
@@ -48,12 +50,28 @@ export default function Navbar() {
 
     list.addEventListener('transitionend', event => {
       list.style.transitionDuration = ''
-  
+
       openHambugerBtn.focus()
     }, {once: true})
   })
 
-  return _.nav({class: 'navbar-block'},
+  // Hide navbar when clicking outside
+  window.addEventListener('click', event => {
+    if (event.composedPath().includes(navbar)) {
+      return
+    }
+
+    list.style.transitionDuration = '0.2s'
+    list.classList.remove('-show-mobile')
+
+    list.addEventListener('transitionend', event => {
+      list.style.transitionDuration = ''
+
+      openHambugerBtn.focus()
+    })
+  })
+
+  return $(navbar, {class: 'navbar-block'},
     Link({class: 'logo', href: '/'},
       _.img({attributes: {src: '/assets/images/shared/logo.svg', alt: 'Logo'}})
     ),
