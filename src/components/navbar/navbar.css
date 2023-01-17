@@ -182,4 +182,10 @@
   background-image: var(--btn-hamburguer-icon);
   background-position: center;
   background-size: 80% auto;
+
+  transition: filter 0.2s;
+
+  @mixin :hover & {
+    filter: drop-shadow(0px 0px 12px #fff);
+  }
 }
