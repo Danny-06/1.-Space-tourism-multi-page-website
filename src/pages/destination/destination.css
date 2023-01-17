@@ -1,5 +1,3 @@
-@custom-media --break-3-portrait (--break-3), (orientation: portrait);
-
 .destination-block {
   display: grid;
   grid-template-columns: minmax(auto, 27.8125rem) minmax(min-content, 26rem);;
