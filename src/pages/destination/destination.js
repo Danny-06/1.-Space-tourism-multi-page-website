@@ -3,11 +3,8 @@ import data from '../data.json'
 
 const {destinations} = data
 
-/**@type {{[key: string]: typeof destinations[0]}}*/
-const destinationsObject = Object.assign({}, ...destinations.map(destination => ({[destination.name]: {...destination}})))
-
 export default function DestinationPage() {
-  let activePlanet = destinationsObject[destinations[0].name]
+  let activePlanet = destinations[0]
 
   const planetImg = _.img()
 
@@ -44,7 +41,7 @@ export default function DestinationPage() {
       buttons.forEach(btn => btn.classList.remove('-active'))
       button.classList.add('-active')
 
-      activePlanet = destinationsObject[destination.name]
+      activePlanet = destination
 
       update()
     })

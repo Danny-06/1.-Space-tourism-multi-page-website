@@ -3,8 +3,6 @@ import data from '../data.json'
 
 const {crew} = data
 
-console.log(crew)
-
 export default function CrewPage() {
   let activeCrew = crew[0]
 
@@ -33,6 +31,7 @@ export default function CrewPage() {
       if (activeCrew.name === person.name) {
         return
       }
+
       options.forEach(option => option.classList.remove('-active'))
       option.classList.add('-active')
 
