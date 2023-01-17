@@ -45,10 +45,7 @@ export default function CrewPage() {
 
   return _.main({class: 'crew-block'},
     _.div({class: 'infosection'},
-      _.div({class: 'title'},
-        _.div({class: 'index'}, '02'),
-        _.div({class: 'name'}, 'MEET YOUR CREW'),
-      ),
+      TitlePage(),
       _.div({class: 'infodots'},
         _.div({class: 'info'},
           $(role, {class: 'role'}),
@@ -61,8 +58,17 @@ export default function CrewPage() {
       ),
     ),
     _.div({class: 'imagesection'},
+      TitlePage(),
       $(crewImage, {class: 'image'}),
       _.div({class: 'line'}),
     ),
+  )
+}
+
+
+function TitlePage() {
+  return _.div({class: 'title-page'},
+    _.div({class: 'index'}, '02'),
+    _.div({class: 'name'}, 'MEET YOUR CREW'),
   )
 }
