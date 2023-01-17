@@ -75,6 +75,7 @@ export default function Navbar() {
     Link({class: 'logo', href: '/'},
       _.img({attributes: {src: '/assets/images/shared/logo.svg', alt: 'Logo'}})
     ),
+    $(openHambugerBtn, {class: 'btn-hamburguer-menu'}),
     _.div({class: 'linedecorator'}),
     $(list, {class: 'list', attributes: {role: 'list'}},
       $(closeHambugerBtn, {class: 'iconclose'}),
@@ -88,6 +89,5 @@ export default function Navbar() {
         )
       ),
     ),
-    $(openHambugerBtn, {class: 'btn-hamburguer-menu'}),
   )
 }
