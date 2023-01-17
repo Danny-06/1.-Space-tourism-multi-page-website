@@ -57,7 +57,7 @@ export default function Navbar() {
 
   // Hide navbar when clicking outside
   window.addEventListener('click', event => {
-    if (event.composedPath().includes(navbar)) {
+    if (!list.classList.contains('-show-mobile') || event.composedPath().includes(navbar)) {
       return
     }
 
