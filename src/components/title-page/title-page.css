@@ -2,7 +2,7 @@
   margin-bottom: auto;
 
   display: flex;
-  column-gap: 2ch;
+  column-gap: 1.5ch;
 
   font-size: 1.6rem;
   font-family: var(--font-barlow-condensed);
