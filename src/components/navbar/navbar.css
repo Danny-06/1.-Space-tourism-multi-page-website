@@ -132,7 +132,7 @@
         border-bottom: solid 0.2em transparent;
 
         transition-property: border-color;
-        transition-duration: 0.2s;
+        transition-duration: 0.4s;
 
         @media (--break-4) {
           padding-block: 0.5rem;
@@ -143,6 +143,7 @@
 
         @mixin :hover & {
           border-color: var(--secondary-color);
+          transition-duration: 0s;
         }
 
         /* Handle active link style */
