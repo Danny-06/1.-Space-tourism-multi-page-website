@@ -1,6 +1,6 @@
 .technology-block {
   display: grid;
-  grid-template-columns: 1fr minmax(20rem, 30rem);
+  grid-template-columns: 1fr minmax(18rem, 30rem);
   grid-template-rows: 5rem auto;
   align-content: center;
   column-gap: 1rem;
@@ -18,7 +18,7 @@
     width: 38rem;
 
     @media (--break-2) {
-      width: 30rem;
+      width: 31rem;
     }
   }
 
@@ -54,14 +54,14 @@
       & > .select {
         display: flex;
         flex-direction: column;
-        row-gap: 1rem;
+        row-gap: 2rem;
   
         & > .option {
           display: grid;
           place-items: center;
 
           border-radius: 50%;
-          width: max(16px, 2em);
+          width: max(65px, 2.3em);
           aspect-ratio: 1 / 1;
           border: solid 2px #4c4d56;
 
@@ -98,10 +98,14 @@
           font-family: var(--font-bellefair);
           font-weight: normal;
           text-transform: uppercase;
+
+          @media (--break-2) {
+            font-size: 2.5rem;
+          }
         }
   
         & > .description {
-          max-width: 43ch;
+          max-width: 47ch;
 
           color: var(--secondary-color);
           line-height: 2rem;
