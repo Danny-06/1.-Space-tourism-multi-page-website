@@ -112,7 +112,8 @@
   }
 
   & > .imagesection {
-  
+    padding-bottom: 1rem;
+
     & > .image {
       display: flex;
 
