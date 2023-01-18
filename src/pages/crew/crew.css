@@ -66,6 +66,7 @@
     padding-bottom: 3.5rem;
 
     & > .title-page {
+      margin-bottom: auto;
 
       @media (--break-4) {
         display: none;
