@@ -53,6 +53,7 @@ export default function TechnologyPage() {
   })
 
   return _.main({class: 'technology-block'},
+    TitlePage('03', 'SPACE LAUNCH 101'),
     _.div({class: 'infosection'},
       TitlePage('03', 'SPACE LAUNCH 101'),
       _.div({class: 'selectinfo'},
