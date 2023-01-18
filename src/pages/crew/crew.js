@@ -1,3 +1,4 @@
+import TitlePage from "../../components/title-page/title-page.js";
 import _, { buildElement as $ } from "../../libs/functional-dom/index.js";
 import data from '../data.json'
 
@@ -45,7 +46,7 @@ export default function CrewPage() {
 
   return _.main({class: 'crew-block'},
     _.div({class: 'infosection'},
-      TitlePage(),
+      TitlePage('02', 'MEET YOUR CREW'),
       _.div({class: 'infodots'},
         _.div({class: 'info'},
           $(role, {class: 'role'}),
@@ -58,17 +59,9 @@ export default function CrewPage() {
       ),
     ),
     _.div({class: 'imagesection'},
-      TitlePage(),
+      TitlePage('02', 'MEET YOUR CREW'),
       $(crewImage, {class: 'image'}),
       _.div({class: 'line'}),
     ),
-  )
-}
-
-
-function TitlePage() {
-  return _.div({class: 'title-page'},
-    _.div({class: 'index'}, '02'),
-    _.div({class: 'name'}, 'MEET YOUR CREW'),
   )
 }

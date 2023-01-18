@@ -1,3 +1,4 @@
+import TitlePage from "../../components/title-page/title-page.js";
 import _, { buildElement as $ } from "../../libs/functional-dom/index.js";
 import data from '../data.json'
 
@@ -51,10 +52,7 @@ export default function DestinationPage() {
 
   return _.main({class: 'destination-block'},
     _.div({class: 'imagesection'},
-      _.div({class: 'title'},
-        _.div({class: 'index'}, '01'),
-        _.div({class: 'name'}, 'PICK YOUR DESTINATION'),
-      ),
+      TitlePage('01', 'PICK YOUR DESTINATION'),
       _.div({class: 'image _absolute-media-wrapper_'},
         $(planetImg)
       ),

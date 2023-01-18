@@ -65,7 +65,7 @@
     flex-direction: column;
     row-gap: 2rem;
 
-    & > .title {
+    & > .title-page {
       display: flex;
       column-gap: 2ch;
 

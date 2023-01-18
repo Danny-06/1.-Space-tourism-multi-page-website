@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 @import '../components/navbar/navbar.css';
+@import '../components/title-page/title-page.css';
+
 @import '../pages/home/home.css';
 @import '../pages/destination/destination.css';
 @import '../pages/crew/crew.css';
