@@ -7,6 +7,8 @@
 
   letter-spacing: 0.295rem; /* 4.72px */
 
+  user-select: text;
+
   & > .index {
     color: #50525a;
     font-weight: bold;
