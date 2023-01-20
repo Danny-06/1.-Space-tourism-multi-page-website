@@ -1,4 +1,7 @@
 import _ from '../../libs/functional-dom/index.js';
+import stylesheet from './title-page.css';
+
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, stylesheet]
 
 /**
  * 

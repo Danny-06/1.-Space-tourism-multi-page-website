@@ -1,5 +1,8 @@
 import { Link } from "../../libs/functional-dom/components/dom-navigate/Link.js";
 import _, {buildElement as $} from "../../libs/functional-dom/index.js";
+import stylesheet from './navbar.css';
+
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, stylesheet]
 
 
 const links = [
