@@ -5,7 +5,16 @@ import { sortWildCardRouteToEnd } from "./utils.js";
 /**
  * @typedef NavigateRouteComponent
  * @property {string} path
- * @property {() => import("../../libs/core.js").CoreNode} component
+ * @property {() => import("../../libs/core.js").CoreNode} [component]
+ * @property {never} [lazyComponent]
+ * @property {never} [redirect]
+ */
+
+/**
+ * @typedef NavigateRouteLazyComponent
+ * @property {string} path
+ * @property {never} [component]
+ * @property {() => Promise<any>} lazyComponent
  * @property {never} [redirect]
  */
 
@@ -17,7 +26,7 @@ import { sortWildCardRouteToEnd } from "./utils.js";
  */
 
 /**
- * @typedef {NavigateRouteComponent | NavigateRouteRedirect} NavigateRoute
+ * @typedef {NavigateRouteComponent | NavigateRouteRedirect | NavigateRouteLazyComponent} NavigateRoute
  */
 
 /**
@@ -36,10 +45,12 @@ export default function DOMNavigate(navigateRoutes) {
 
   const sortedRoutes = sortWildCardRouteToEnd(navigateRoutes)  
 
+  const lazyComponentMap = new Map()
+
   return {
     component,
 
-    update(pathname) {
+    async update(pathname) {
       let renderComponentFunc = null
 
       for (const route of sortedRoutes) {
@@ -52,7 +63,18 @@ export default function DOMNavigate(navigateRoutes) {
             return
           }
 
-          renderComponentFunc = route.component
+          if (typeof route.lazyComponent === 'function') {
+            if (lazyComponentMap.has(route.path)) {
+              renderComponentFunc = lazyComponentMap.get(route.path)
+            } else {
+              const module = await route.lazyComponent()
+              renderComponentFunc = module.default
+              lazyComponentMap.set(route.path, renderComponentFunc)
+            }
+          } else {
+            renderComponentFunc = route.component
+          }
+
           break
         }
       }
