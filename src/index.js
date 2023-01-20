@@ -4,10 +4,13 @@ import DOMNavigate from './libs/functional-dom/components/dom-navigate/index.js'
 import navigation from './libs/functional-dom/components/dom-navigate/navigation.js'
 import { routes } from './routes.js'
 import Navbar from './components/navbar/navbar.js'
+import LoadingComponent from './components/loading-component/loading-component.js'
 
 document.adoptedStyleSheets = [...document.adoptedStyleSheets, mainStyleSheet]
 
-const Navigate = DOMNavigate(routes)
+const Navigate = DOMNavigate(routes, {
+  loadingComponent: LoadingComponent
+})
 
 navigation.addEventListener('custom-navigate', event => {
   document.documentElement.dataset.pathname = event.detail.path

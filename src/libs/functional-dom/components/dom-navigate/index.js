@@ -13,7 +13,7 @@ import { sortWildCardRouteToEnd } from "./utils.js";
  */
 
 /**
- * @typedef {Promise<Module<Component>>} LazyComponent
+ * @typedef {() => Promise<Module<Component>>} LazyComponent
  */
 
 /**
@@ -28,7 +28,7 @@ import { sortWildCardRouteToEnd } from "./utils.js";
  * @typedef NavigateRouteLazyComponent
  * @property {string} path
  * @property {never} [component]
- * @property {() => LazyComponent} lazyComponent
+ * @property {LazyComponent} lazyComponent
  * @property {never} [redirect]
  */
 
@@ -36,11 +36,18 @@ import { sortWildCardRouteToEnd } from "./utils.js";
  * @typedef NavigateRouteRedirect
  * @property {string} path
  * @property {never} [component]
+ * @property {never} [lazyComponent]
  * @property {string} redirect
  */
 
 /**
  * @typedef {NavigateRouteComponent | NavigateRouteRedirect | NavigateRouteLazyComponent} NavigateRoute
+ */
+
+/**
+ * @typedef DOMNavigateOptions
+ * @property {Component} [loadingComponent]
+ * @property {Component} [errorComponent]
  */
 
 /**
@@ -50,15 +57,19 @@ import { sortWildCardRouteToEnd } from "./utils.js";
  */
 
 /**
- * 
- * @param {NavigateRoute[]} navigateRoutes 
+ *
+ * @param {NavigateRoute[]} navigateRoutes
+ * @param {DOMNavigateOptions} [options]
  * @returns {DOMNavigateObject}
  */
-export default function DOMNavigate(navigateRoutes) {
+export default function DOMNavigate(navigateRoutes, options = {}) {
   const component = _['dom-navigate']()
 
-  const sortedRoutes = sortWildCardRouteToEnd(navigateRoutes)  
+  const sortedRoutes = sortWildCardRouteToEnd(navigateRoutes)
 
+  /**
+   * @type {Map<string, Component>}
+   */
   const lazyComponentMap = new Map()
 
   return {
@@ -81,7 +92,41 @@ export default function DOMNavigate(navigateRoutes) {
             if (lazyComponentMap.has(route.path)) {
               renderComponentFunc = lazyComponentMap.get(route.path)
             } else {
-              const module = await route.lazyComponent()
+              // Handle first loading of LazyComponent
+              let isLoaded = false
+
+              if (typeof options.loadingComponent === 'function') {
+
+                setTimeout(() => {
+                  if (isLoaded) {
+                    return
+                  }
+
+                  component.replaceChildren()
+  
+                  // @ts-ignore
+                  component.append(options.loadingComponent())
+                }, 50)
+              }
+
+              const module = await route.lazyComponent().catch(reason => {
+                console.error(reason)
+                return null
+              })
+
+              isLoaded = true
+
+              // Handle load error
+              if (module == null) {
+                if (typeof options.errorComponent === 'function') {
+                  component.replaceChildren()
+
+                  // @ts-ignore
+                  component.append(options.errorComponent())
+                }
+
+                return
+              }
 
               renderComponentFunc = module.default
               lazyComponentMap.set(route.path, renderComponentFunc)
