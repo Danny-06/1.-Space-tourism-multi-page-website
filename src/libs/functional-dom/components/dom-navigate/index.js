@@ -68,6 +68,7 @@ export default function DOMNavigate(navigateRoutes) {
               renderComponentFunc = lazyComponentMap.get(route.path)
             } else {
               const module = await route.lazyComponent()
+
               renderComponentFunc = module.default
               lazyComponentMap.set(route.path, renderComponentFunc)
             }
