@@ -3,18 +3,7 @@
 @import '../components/navbar/navbar.css';
 @import '../components/title-page/title-page.css';
 
-@import '../pages/home/home.css';
-@import '../pages/destination/destination.css';
-@import '../pages/crew/crew.css';
-@import '../pages/technology/technology.css';
-
-@custom-media --break-1 (width <= 68.75em); /* 1100px */
-@custom-media --break-2 (width <= 62.5em); /* 1000px */
-@custom-media --break-3 (width <= 53.125em); /* 850px */
-@custom-media --break-4 (width <= 40.625em); /* 650px */
-
-@custom-media --break-3-portrait (--break-3), (orientation: portrait);
-@custom-media --break-4-portrait (--break-4), (orientation: portrait);
+@import './media-queries.css';
 
 
 :root {

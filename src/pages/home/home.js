@@ -1,4 +1,7 @@
-import _ from "../../libs/functional-dom/index.js";
+import _ from '../../libs/functional-dom/index.js';
+import stylesheet from './home.css'
+
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, stylesheet]
 
 export default function HomePage() {
   return _.main({class: 'home-block'},

@@ -1,7 +1,9 @@
 import TitlePage from '../../components/title-page/title-page.js';
 import _, { buildElement as $ } from '../../libs/functional-dom/index.js';
-
 import data from '../data.json'
+import stylesheet from './technology.css'
+
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, stylesheet]
 
 const {technology} = data
 

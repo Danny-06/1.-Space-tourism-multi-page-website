@@ -5,7 +5,7 @@ import navigation from './libs/functional-dom/components/dom-navigate/navigation
 import { routes } from './routes.js'
 import Navbar from './components/navbar/navbar.js'
 
-document.adoptedStyleSheets = [mainStyleSheet]
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, mainStyleSheet]
 
 const Navigate = DOMNavigate(routes)
 
