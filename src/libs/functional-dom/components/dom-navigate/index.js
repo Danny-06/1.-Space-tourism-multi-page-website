@@ -106,7 +106,7 @@ export default function DOMNavigate(navigateRoutes, options = {}) {
   
                   // @ts-ignore
                   component.append(options.loadingComponent())
-                }, 30)
+                }, 70)
               }
 
               const module = await route.lazyComponent().catch(reason => {
