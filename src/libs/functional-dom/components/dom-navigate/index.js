@@ -3,9 +3,23 @@ import navigation from "./navigation.js";
 import { sortWildCardRouteToEnd } from "./utils.js";
 
 /**
+ * @template T
+ * @typedef Module
+ * @property {T} default
+ */
+
+/**
+ * @typedef {() => import("../../libs/core.js").CoreNode} Component
+ */
+
+/**
+ * @typedef {Promise<Module<Component>>} LazyComponent
+ */
+
+/**
  * @typedef NavigateRouteComponent
  * @property {string} path
- * @property {() => import("../../libs/core.js").CoreNode} [component]
+ * @property {Component} [component]
  * @property {never} [lazyComponent]
  * @property {never} [redirect]
  */
@@ -14,7 +28,7 @@ import { sortWildCardRouteToEnd } from "./utils.js";
  * @typedef NavigateRouteLazyComponent
  * @property {string} path
  * @property {never} [component]
- * @property {() => Promise<any>} lazyComponent
+ * @property {() => LazyComponent} lazyComponent
  * @property {never} [redirect]
  */
 
