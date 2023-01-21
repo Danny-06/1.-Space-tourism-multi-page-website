@@ -36,7 +36,7 @@ export default function Navbar() {
 
   const list = _.div()
 
-  openHambugerBtn.addEventListener('click', event => {
+  function showNavbar() {
     list.style.transitionDuration = '0.2s'
     list.classList.add('-show-mobile')
 
@@ -45,9 +45,9 @@ export default function Navbar() {
 
       closeHambugerBtn.focus()
     }, {once: true})
-  })
+  }
 
-  closeHambugerBtn.addEventListener('click', event => {
+  function hideNavbar() {
     list.style.transitionDuration = '0.2s'
     list.classList.remove('-show-mobile')
 
@@ -56,6 +56,14 @@ export default function Navbar() {
 
       openHambugerBtn.focus()
     }, {once: true})
+  }
+
+  openHambugerBtn.addEventListener('click', event => {
+    showNavbar()
+  })
+
+  closeHambugerBtn.addEventListener('click', event => {
+    hideNavbar()
   })
 
   // Hide navbar when clicking outside
@@ -85,7 +93,9 @@ export default function Navbar() {
 
       links.map(link =>
         _.div({class: 'item', attributes: {role: 'listitem'}},
-          Link({class: 'link', href: link.href},
+          Link({class: 'link', href: link.href,
+            apply: anchor => anchor.addEventListener('click', hideNavbar)
+          },
             _.span({class: 'index'}, link.index),
             _.span({class: 'name'}, link.name),
           )
