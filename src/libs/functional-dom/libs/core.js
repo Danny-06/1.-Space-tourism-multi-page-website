@@ -84,6 +84,7 @@ import { $map, createElement, createElementNS, setChildren, setClasses, setStyle
  * @property {{[key: string]: Primitive}} [dataset]
  * @property {{[key: string]: Primitive}} [attributes]
  * @property {{[key: string]: Primitive}} [style]
+ * @property {(element: HTMLElement) => any} [apply]
  */
 
 
@@ -187,7 +188,7 @@ export default DOMMaker
  * the `properties` and the `children` to it.
  */
 export function buildElement(element, properties = {}, ...children) {
-  const {id, class: classes, dataset, attributes, style} = properties ?? {}
+  const {id, class: classes, dataset, attributes, style, apply} = properties ?? {}
 
   const tp = window.trustedTypes ? trustedTypes.createPolicy('', {createHTML: e => e, createScriptURL: e => e }) : {createHTML: e => e, createScriptURL: e => e }
 
@@ -230,6 +231,10 @@ export function buildElement(element, properties = {}, ...children) {
   if (style) {
     // @ts-ignore
     setStyleProperties(element.style, style)
+  }
+
+  if (typeof apply === 'function') {
+    apply(element)
   }
 
   setChildren(element, children)
@@ -355,48 +360,6 @@ export const NSMaker = namespace => {
  * the `properties` and the `children` to it.
  */
 export function buildElementNS(element, properties = {}, ...children) {
-  const {id, class: classes, dataset, attributes, style} = properties
-
-  const tp = window.trustedTypes ? trustedTypes.createPolicy('', {createHTML: e => e, createScriptURL: e => e}) : {createHTML: e => e, createScriptURL: e => e }
-
-  if (id) {
-    element.id = id
-  }
-
-  if (classes) {
-    // @ts-ignore
-    setClasses(element, classes)
-  }
-  
-  if (dataset) {
-    for (const [property, value] of Object.entries(dataset ?? {})) {
-      if (value === undefined) continue
-      
-      // @ts-ignore
-      element.dataset[property] = value
-    }
-  }
-  
-  for (const [property, value] of Object.entries(attributes ?? {})) {
-    if (value === undefined) continue
-    
-    if (['src', 'href'].includes(property)) {
-      element.setAttribute(property, tp.createScriptURL(value))
-      
-      continue
-    }
-    
-    // @ts-ignore
-    element.setAttribute(property, value)
-  }
-  
-  if (style) {
-    // @ts-ignore
-    setStyleProperties(element.style, style)
-  }
-  
   // @ts-ignore
-  setChildren(element, children)
-
-  return element
+  return buildElement(element, properties, ...children)
 }
