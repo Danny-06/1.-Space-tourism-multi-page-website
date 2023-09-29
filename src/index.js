@@ -27,6 +27,7 @@ function App() {
   )
 }
 
+// navigation.setUnsavedChanges(true)
 
 const render = _(
   App(),

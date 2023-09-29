@@ -7,25 +7,43 @@ const linkMethodSymbol = Symbol('method')
 const linkDefaultBehaviorSymbol = Symbol('default-behavior')
 
 /**
+ * @typedef {import("../../libs/core.js").FunctionalDOMProperties} FunctionalDOMProperties
+ */
+
+/**
+ * @typedef {import("../../libs/core.js").Children} Children
+ */
+
+/**
+ * @typedef DefaultLinkPropertiesDef
+ * @property {string} [href] Value for the `href` attribute of the `HTMLAnchorElement`
+ * @property {string} [target] Value for the `target` attribute of the `HTMLAnchorElement`
+ * @property {string} [download] Value for the `download` attribute of the `HTMLAnchorElement`
+ */
+
+/**
  * @typedef LinkPropertiesDef
  * @property {boolean} [defaultBehavior=false] Use normal behavior of anchors to go to a url (no navigation)
- * @property {string} [href] Value for the `href` attribute of the `HTMLAnchorElement`
  * @property {History['state']} [state] The state value to store in `History.state`
  * @property {'push' | 'replace'} [method] The navigation method to use. If unspecified it will be `push` for normal urls but for urls that contains a hash (`#`) `replace` will be used.
  */
 
 /**
- * @typedef {import("../../libs/core.js").FunctionalDOMProperties & LinkPropertiesDef} LinkProperties
+ * @typedef {FunctionalDOMProperties & DefaultLinkPropertiesDef & LinkPropertiesDef} LinkProperties
  */
 
 /**
  * Anchor tag to do navigation using the history API
  * @param {LinkProperties} [options] 
- * @param  {...import("../../libs/core.js").Children} children 
+ * @param  {...Children} children 
  * @returns {HTMLAnchorElement}
  */
 export function Link(options, ...children) {
-  const {href, state, method, defaultBehavior} = options ?? {}
+  if (new.target) {
+    throw new Error(`Cannot call function with the new operator`)
+  }
+
+  const {href, target, download, state, method, defaultBehavior} = options ?? {}
 
   const anchor = _.a(options, ...children)
 
@@ -35,8 +53,16 @@ export function Link(options, ...children) {
 
   anchor[linkDefaultBehaviorSymbol] = Boolean(defaultBehavior)
 
+  if (typeof target === 'string') {
+    anchor.target = target
+  }
+
   if (typeof href === 'string') {
     anchor.href = href
+  }
+
+  if (typeof download === 'string') {
+    anchor.download = download
   }
 
   if (typeof method === 'string') {
@@ -79,6 +105,20 @@ export function Link(options, ...children) {
   })
 
   return anchor
+}
+
+/**
+ * @typedef {DefaultLinkPropertiesDef & FunctionalDOMProperties} DefaultLinkProperties
+ */
+
+/**
+ * Default anchor tag
+ * @param {DefaultLinkProperties} [options] 
+ * @param  {...import("../../libs/core.js").Children} children 
+ * @returns {HTMLAnchorElement}
+ */
+Link.default = function(options, ...children) {
+  return Link({...options, defaultBehavior: true}, ...children)
 }
 
 
