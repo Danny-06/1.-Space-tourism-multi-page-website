@@ -204,9 +204,13 @@
   & > .imagesection {
     padding-bottom: 1rem;
 
-    @media (--break-3-portrait) {
+    @media (--break-3) {
       /* Set common height to images since one of them has different height */
       height: 334px;
+    }
+
+    @media (--break-3-portrait) {
+      height: 430px;
     }
 
     @media (--break-4) {
