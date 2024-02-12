@@ -211,7 +211,6 @@
 
     @media (--break-4) {
       height: 170px;
-      object-fit: cover;
     }
 
     & > .image {
@@ -228,7 +227,7 @@
 
         object-fit: contain;
 
-        @media (--break-4) {
+        @media (--break-3-portrait) {
           object-fit: cover;
         }
       }
