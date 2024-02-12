@@ -32,7 +32,7 @@
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
 
-    min-height: 34.8125rem;
+    min-height: 32rem;
 
     @media (--break-3-portrait) {
       min-height: 28.8125rem;
