@@ -230,6 +230,7 @@
         height: 100%;
 
         object-fit: contain;
+        object-position: right;
 
         @media (--break-3-portrait) {
           object-fit: cover;
