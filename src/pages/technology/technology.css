@@ -12,7 +12,7 @@
 
   overflow: auto;
 
-  @media (--break-3) {
+  @media (--break-3-portrait) {
     grid-template-columns: auto;
     grid-template-rows: repeat(3, min-content);
     align-content: stretch;
@@ -24,11 +24,11 @@
 
   & > .title-page {
 
-    @media not (--break-3) {
+    @media not (--break-3-portrait) {
       display: none;
     }
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       grid-column: 1 / span 1;
       grid-row: 1 / span 1;
 
@@ -48,7 +48,7 @@
       width: 31rem;
     }
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       grid-column: 1 / span 1;
       grid-row: 3 / span 1;
 
@@ -60,7 +60,7 @@
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       grid-column: 1 / span 1;
       grid-row: 2 / span 1;
     }
@@ -85,7 +85,7 @@
     & > .title-page {
       transform: translateY(-4rem);
 
-      @media (--break-3) {
+      @media (--break-3-portrait) {
         display: none;
       }
     }
@@ -96,7 +96,7 @@
       display: flex;
       column-gap: 4rem;
       
-      @media (--break-3) {
+      @media (--break-3-portrait) {
         padding-top: 0;
         
         flex-direction: column;
@@ -108,7 +108,7 @@
         flex-direction: column;
         row-gap: 2rem;
 
-        @media (--break-3) {
+        @media (--break-3-portrait) {
           align-self: center;
 
           flex-direction: row;
@@ -127,7 +127,7 @@
           font-size: 2rem;
           font-family: var(--font-bellefair);
 
-          @media (--break-3) {
+          @media (--break-3-portrait) {
             width: max(50px, 2em);
           }
 
@@ -150,7 +150,7 @@
         display: flex;
         flex-direction: column;
 
-        @media (--break-3) {
+        @media (--break-3-portrait) {
           text-align: center;
         }
 
@@ -159,7 +159,7 @@
           font-family: var(--font-barlow-condensed);
           letter-spacing: 0.16875rem; /* 2.7px */
 
-          @media (--break-3) {
+          @media (--break-3-portrait) {
             margin-bottom: 1rem;
           }
 
@@ -204,7 +204,7 @@
   & > .imagesection {
     padding-bottom: 1rem;
 
-    @media (--break-3) {
+    @media (--break-3-portrait) {
       /* Set common height to images since one of them has different height */
       height: 334px;
     }
@@ -227,6 +227,10 @@
         height: 100%;
 
         object-fit: contain;
+
+        @media (--break-4) {
+          object-fit: cover;
+        }
       }
     }
   }
