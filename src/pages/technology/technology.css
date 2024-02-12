@@ -204,6 +204,16 @@
   & > .imagesection {
     padding-bottom: 1rem;
 
+    @media (--break-3) {
+      /* Set common height to images since one of them has different height */
+      height: 334px;
+    }
+
+    @media (--break-4) {
+      height: 170px;
+      object-fit: cover;
+    }
+
     & > .image {
       position: relative;
       width: 100%;
@@ -217,16 +227,6 @@
         height: 100%;
 
         object-fit: contain;
-
-        @media (--break-3) {
-          /* Set common height to images since one of them has different height */
-          height: 334px;
-        }
-
-        @media (--break-4) {
-          height: 170px;
-          object-fit: cover;
-        }
       }
     }
   }
